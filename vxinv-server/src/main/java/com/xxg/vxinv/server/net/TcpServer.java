@@ -1,6 +1,5 @@
 package com.xxg.vxinv.server.net;
 
-import com.xxg.vxinv.common.protocol.LengthMessage;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -8,9 +7,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-/**
- * Created by wucao on 2019/2/27.
- */
+
 public class TcpServer {
 
     Logger Log = LoggerFactory.getLogger(TcpServer.class);
@@ -30,6 +27,7 @@ public class TcpServer {
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
 
             channel = b.bind(port).sync().channel();
+
             channel.closeFuture().addListener((ChannelFutureListener) future -> {
                 workerGroup.shutdownGracefully();
                 bossGroup.shutdownGracefully();
@@ -39,16 +37,9 @@ public class TcpServer {
             bossGroup.shutdownGracefully();
             throw e;
         }
+
+
     }
 
-    public synchronized void close() {
-        if (channel != null) {
-            channel.close();
-        }
-    }
 
-    public void write(LengthMessage message){
-        Log.info("tcp server write {}",new String(message.getData()));
-        channel.writeAndFlush(message.getData());
-    }
 }

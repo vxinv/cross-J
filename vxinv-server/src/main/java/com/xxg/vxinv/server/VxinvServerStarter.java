@@ -1,25 +1,19 @@
 package com.xxg.vxinv.server;
 
-import com.xxg.vxinv.common.util.YmalReader;
 import com.xxg.vxinv.common.util.ybeans.YamlBean;
-import org.apache.commons.cli.ParseException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
  * Created by wucao on 2019/10/23.
  */
 public class VxinvServerStarter {
+    static Logger Log = LoggerFactory.getLogger(VxinvServerStarter.class);
 
-    public static void main(String[] args) throws ParseException, InterruptedException {
-
-
-        YamlBean map = YmalReader.getMap();
-
+    public static void serverRun(YamlBean yb) throws InterruptedException {
+        Log.info("server run start");
         VxinvServer server = new VxinvServer();
-
-        server.start(map.getClient_connect_port(),map.getServer_binds());
-
-        System.out.println("vxinv server started on port " + map.getClient_connect_port());
-
+        server.start(yb.getClient_connect_port(), yb.getServer_binds());
     }
 }

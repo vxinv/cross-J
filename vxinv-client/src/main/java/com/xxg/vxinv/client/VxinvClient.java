@@ -5,7 +5,6 @@ import com.xxg.vxinv.client.handler.VxinvClientHandler;
 import com.xxg.vxinv.client.net.TcpConnection;
 import com.xxg.vxinv.common.codec.LengthMessageDecoder;
 import com.xxg.vxinv.common.codec.LengthMessageEncoder;
-import com.xxg.vxinv.common.util.ybeans.Proxys;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
@@ -15,7 +14,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -25,29 +23,29 @@ public class VxinvClient {
 
     Logger Log = LoggerFactory.getLogger(VxinvClient.class);
 
-    public void connect(String serverAddress, int serverPort, List<Proxys> proxys) throws IOException, InterruptedException {
+    public void connect(String serverAddress, int serverPort) throws IOException, InterruptedException {
         TcpConnection tcpConnection = new TcpConnection();
+
         ChannelFuture future = tcpConnection.connect(serverAddress, serverPort, new ChannelInitializer<SocketChannel>() {
             @Override
             public void initChannel(SocketChannel ch) throws Exception {
-
                 ch.pipeline().addLast(
-                        new IdleStateHandler(0, 25, 0, TimeUnit.SECONDS),
+                        new IdleStateHandler(0, 250, 0, TimeUnit.SECONDS),
                         new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 2, 4, 0, 0),
                         new LengthMessageDecoder(),
                         new LengthMessageEncoder(),
                         new HeartBeatClientHandle(),
-                        new VxinvClientHandler(proxys));
+                        new VxinvClientHandler());
             }
         });
-        Log.info("client connect server IP {} port {} success ",serverAddress,serverPort);
+        Log.info("链接公网IP{} 端口 {} 成功", serverAddress, serverPort);
         // channel close retry connect
         future.addListener(future1 -> new Thread() {
             @Override
             public void run() {
                 while (true) {
                     try {
-                        connect(serverAddress, serverPort,proxys);
+                        connect(serverAddress, serverPort);
                         break;
                     } catch (Exception e) {
                         e.printStackTrace();

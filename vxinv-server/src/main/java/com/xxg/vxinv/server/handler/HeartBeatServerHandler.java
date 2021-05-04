@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class HeartBeatServerHandler extends SimpleChannelInboundHandler<LengthMessage> {
+
     Logger Log = LoggerFactory.getLogger(HeartBeatServerHandler.class);
     static short hearBeatId = 21888;
     static String msg = "heartbeat" ;
@@ -19,7 +20,7 @@ public class HeartBeatServerHandler extends SimpleChannelInboundHandler<LengthMe
     static {
         lengthMessage = new LengthMessage();
         byte[] data = msg.getBytes();
-        lengthMessage.setId((short) 0);
+        lengthMessage.setId(hearBeatId);
         lengthMessage.setLength(data.length);
         lengthMessage.setData(data);
     }
@@ -27,11 +28,10 @@ public class HeartBeatServerHandler extends SimpleChannelInboundHandler<LengthMe
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, LengthMessage msg) throws Exception {
         if (msg.getId() == hearBeatId){
-            ctx.writeAndFlush(lengthMessage);
+
         }else {
             ctx.fireChannelRead(msg);
         }
-
     }
 
     /**
@@ -49,7 +49,6 @@ public class HeartBeatServerHandler extends SimpleChannelInboundHandler<LengthMe
                 ctx.writeAndFlush(lengthMessage).addListener(ChannelFutureListener.CLOSE_ON_FAILURE) ;
             }
         }
-        super.userEventTriggered(ctx, evt);
     }
 
 }

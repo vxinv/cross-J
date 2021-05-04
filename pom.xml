@@ -13,6 +13,7 @@
         <module>vxinv-server</module>
         <module>vxinv-client</module>
         <module>vxinv-common</module>
+        <module>vxinv-inte</module>
     </modules>
 
     <properties>

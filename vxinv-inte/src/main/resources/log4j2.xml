@@ -4,7 +4,7 @@
 
     <appenders>
         <console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n" />
+            <PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
         </console>
 
         <!--<RollingFile name="RollingFileInfo" fileName="info.log"
@@ -21,12 +21,12 @@
             </Policies>
         </RollingFile>-->
 
-       <!-- <RandomAccessFile name="RandomAccessFile" fileName="asyncWithLocation.log"
-                          immediateFlush="false" append="true">
-            <PatternLayout>
-                <Pattern>[%t] - %m%n</Pattern>
-            </PatternLayout>
-        </RandomAccessFile>-->
+        <!-- <RandomAccessFile name="RandomAccessFile" fileName="asyncWithLocation.log"
+                           immediateFlush="false" append="true">
+             <PatternLayout>
+                 <Pattern>[%t] - %m%n</Pattern>
+             </PatternLayout>
+         </RandomAccessFile>-->
 
     </appenders>
 
@@ -35,7 +35,7 @@
             includeLocation="true">
             <AppenderRef ref="RandomAccessFile" />
         </AsyncLogger> -->
-        <Root level="info" includeLocation="true">
+        <Root level="warn" includeLocation="true">
             <!--<AppenderRef ref="RollingFileInfo" />-->
             <AppenderRef ref="Console"/>
         </Root>

@@ -35,9 +35,9 @@
             includeLocation="true">
             <AppenderRef ref="RandomAccessFile" />
         </AsyncLogger> -->
-        <Root level="debug" includeLocation="true">
-            <AppenderRef ref="RollingFileInfo" />
-            <AppenderRef ref="Console" />
+        <Root level="info" includeLocation="true">
+            <!--<AppenderRef ref="RollingFileInfo" />-->
+            <AppenderRef ref="Console"/>
         </Root>
     </loggers>
 

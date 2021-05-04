@@ -3350,3 +3350,138 @@
 [nioEventLoopGroup-2-1] - connect local port 3344 success
 [main] - client connect server IP 192.168.1.3 port 7777 success 
 [nioEventLoopGroup-3-1] - bind local port 3346
+[nioEventLoopGroup-2-1] - lose 1
+[nioEventLoopGroup-5-1] - LocalProxy 1 active
+[nioEventLoopGroup-4-1] - connect local port 3344 success
+[nioEventLoopGroup-3-1] - bind local port 3346
+[nioEventLoopGroup-3-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - connect local port 3344 success
+[main] - client connect server IP 192.168.1.3 port 7777 success 
+[nioEventLoopGroup-5-1] - LocalProxy 1 active
+[nioEventLoopGroup-4-1] - connect local port 3344 success
+[nioEventLoopGroup-2-1] - lose 1
+[nioEventLoopGroup-3-1] - bind local port 3346
+[nioEventLoopGroup-3-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - connect local port 3344 success
+[main] - client connect server IP 192.168.1.3 port 7777 success 
+[nioEventLoopGroup-4-1] - connect local port 3344 success
+[nioEventLoopGroup-5-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - lose 1
+[nioEventLoopGroup-3-1] - bind local port 3346
+[nioEventLoopGroup-2-1] - connect local port 3344 success
+[nioEventLoopGroup-3-1] - LocalProxy 1 active
+[main] - client connect server IP 192.168.1.3 port 7777 success 
+[nioEventLoopGroup-5-1] - LocalProxy 1 active
+[nioEventLoopGroup-4-1] - connect local port 3344 success
+[nioEventLoopGroup-2-1] - lose 1
+[nioEventLoopGroup-3-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - connect local port 3344 success
+[main] - client connect server IP 192.168.1.3 port 7777 success 
+[nioEventLoopGroup-3-1] - bind local port 3346
+[nioEventLoopGroup-2-1] - lose 1
+[nioEventLoopGroup-5-1] - LocalProxy 1 active
+[nioEventLoopGroup-4-1] - connect local port 3344 success
+[nioEventLoopGroup-3-1] - bind local port 3346
+[nioEventLoopGroup-3-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - connect local port 3344 success
+[main] - client connect server IP 192.168.1.3 port 7777 success 
+[nioEventLoopGroup-5-1] - LocalProxy 1 active
+[nioEventLoopGroup-4-1] - connect local port 3344 success
+[nioEventLoopGroup-2-1] - lose 1
+[nioEventLoopGroup-3-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - connect local port 3344 success
+[main] - client connect server IP 192.168.1.3 port 7777 success 
+[nioEventLoopGroup-3-1] - bind local port 3346
+[nioEventLoopGroup-2-1] - lose 1
+[nioEventLoopGroup-4-1] - connect local port 3344 success
+[nioEventLoopGroup-5-1] - LocalProxy 1 active
+[nioEventLoopGroup-3-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - connect local port 3344 success
+[main] - client connect server IP 192.168.1.3 port 7777 success 
+[nioEventLoopGroup-3-1] - bind local port 3346
+[nioEventLoopGroup-3-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - connect local port 3344 success
+[main] - client connect server IP 192.168.1.3 port 7777 success 
+[nioEventLoopGroup-4-1] - connect local port 3344 success
+[nioEventLoopGroup-5-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - lose 1
+[nioEventLoopGroup-2-1] - connect local port 3344 success
+[nioEventLoopGroup-3-1] - LocalProxy 1 active
+[main] - client connect server IP 192.168.1.3 port 7777 success 
+[nioEventLoopGroup-3-1] - bind local port 3346
+[nioEventLoopGroup-2-1] - lose 1
+[nioEventLoopGroup-4-1] - connect local port 3344 success
+[nioEventLoopGroup-5-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - 链接本地端口1
+[nioEventLoopGroup-3-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - 链接端口 3344 成功
+[main] - client connect server IP 192.168.1.3 port 7777 success 
+[nioEventLoopGroup-3-1] - bind local port 3346
+[nioEventLoopGroup-3-1] - bind local port 3346
+[nioEventLoopGroup-2-1] - 链接本地端口1
+[nioEventLoopGroup-3-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - 链接端口 3344 成功
+[main] - client connect server IP 192.168.1.3 port 7777 success 
+[nioEventLoopGroup-2-1] - 链接本地端口1
+[nioEventLoopGroup-3-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - 链接端口 3344 成功
+[main] - 链接公网IP192.168.1.3 端口 7777 成功
+[nioEventLoopGroup-2-1] - 链接本地端口1
+[nioEventLoopGroup-2-1] - 链接本地端口1
+[nioEventLoopGroup-3-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - 链接端口 3344 成功
+[main] - 链接公网IP192.168.1.3 端口 7777 成功
+[nioEventLoopGroup-4-1] - 链接本地端口1
+[nioEventLoopGroup-4-1] - 链接端口 3344 成功
+[nioEventLoopGroup-5-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - lose 1
+[nioEventLoopGroup-2-1] - 链接本地端口1
+[nioEventLoopGroup-3-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - 链接端口 3344 成功
+[main] - 链接公网IP192.168.1.3 端口 7777 成功
+[nioEventLoopGroup-3-1] - bind local port 3346
+[nioEventLoopGroup-2-1] - client read 5454545454gdgdfgd
+[nioEventLoopGroup-2-1] - client read heartbeat
+[nioEventLoopGroup-2-1] - client read 5454545454gdgdfgd
+[nioEventLoopGroup-3-1] - server channel read heartbeat
+[nioEventLoopGroup-3-1] - server channel read gdgdgdfgdfgdfgf
+[nioEventLoopGroup-3-1] - server channel read gdgdgdfgdfgdfgf
+[nioEventLoopGroup-3-1] - bind local port 3346
+[nioEventLoopGroup-2-1] - 链接本地端口1
+[nioEventLoopGroup-3-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - 链接端口 3344 成功
+[main] - 链接公网IP192.168.1.3 端口 7777 成功
+[nioEventLoopGroup-2-1] - client read heartbeat
+[nioEventLoopGroup-3-2] - server channel read heartbeat
+[nioEventLoopGroup-2-1] - client read heartbeat
+[nioEventLoopGroup-3-2] - server channel read heartbeat
+[nioEventLoopGroup-2-1] - client read heartbeat
+[nioEventLoopGroup-3-2] - server channel read heartbeat
+[nioEventLoopGroup-2-1] - client read heartbeat
+[nioEventLoopGroup-3-2] - server channel read heartbeat
+[nioEventLoopGroup-2-1] - client read heartbeat
+[nioEventLoopGroup-3-2] - server channel read heartbeat
+[nioEventLoopGroup-2-1] - client read heartbeat
+[nioEventLoopGroup-3-2] - server channel read heartbeat
+[nioEventLoopGroup-2-1] - client read heartbeat
+[nioEventLoopGroup-3-2] - server channel read heartbeat
+[nioEventLoopGroup-2-1] - client read heartbeat
+[nioEventLoopGroup-3-2] - server channel read heartbeat
+[nioEventLoopGroup-2-1] - client read heartbeat
+[nioEventLoopGroup-4-1] - 链接本地端口1
+[nioEventLoopGroup-4-1] - 链接端口 3344 成功
+[nioEventLoopGroup-5-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - lose 1
+[nioEventLoopGroup-2-1] - 链接本地端口1
+[nioEventLoopGroup-3-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - 链接端口 3344 成功
+[main] - 链接公网IP192.168.1.3 端口 7777 成功
+[nioEventLoopGroup-3-1] - bind local port 3346
+[nioEventLoopGroup-2-1] - client read heartbeat
+[nioEventLoopGroup-3-1] - server channel read heartbeat
+[nioEventLoopGroup-2-1] - client read heartbeat
+[nioEventLoopGroup-3-1] - server channel read heartbeat
+[nioEventLoopGroup-4-1] - 链接本地端口1
+[nioEventLoopGroup-4-1] - 链接端口 3344 成功
+[nioEventLoopGroup-5-1] - LocalProxy 1 active
+[nioEventLoopGroup-2-1] - lose 1
