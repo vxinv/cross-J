@@ -12,11 +12,11 @@
 
     <includeBaseDirectory>true</includeBaseDirectory>
 
-    <dependencySets>
+   <!-- <dependencySets>
         <dependencySet>
             <outputDirectory>/lib</outputDirectory>
         </dependencySet>
-    </dependencySets>
+    </dependencySets>-->
 
     <fileSets>
         <fileSet>
@@ -30,7 +30,10 @@
 
         <fileSet>
             <directory>src/main/resources</directory>
-            <outputDirectory>/config</outputDirectory>
+            <outputDirectory>/</outputDirectory>
+            <excludes>
+                <exclude>*.xml</exclude>
+            </excludes>
         </fileSet>
 
     </fileSets>

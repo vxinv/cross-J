@@ -26,7 +26,7 @@ public class VxinvClientStarter {
         VxinvClient client = new VxinvClient();
         client.connect(server_addr, server_port);
 
-        // a监听本地
+        // Client 监听本地
         for (Proxys proxy : yb.getClient_proxys()) {
             TcpConnection localConnection = new TcpConnection();
             // 对代理地址端口监听

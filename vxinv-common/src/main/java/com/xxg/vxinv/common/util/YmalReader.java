@@ -15,7 +15,7 @@ public class YmalReader {
     public static YamlBean getMap() {
         String pref_dir = System.getProperty("user.dir");
         System.out.println(pref_dir);
-        String yamlUrl = pref_dir + File.separator + "config" + File.separator + "config.yaml";
+        String yamlUrl = pref_dir + File.separator + "config.yaml";
         try {
             return  JSON.parseObject(JSON.toJSONString(yaml.load(new FileInputStream(yamlUrl))),YamlBean.class);
         } catch (FileNotFoundException e) {

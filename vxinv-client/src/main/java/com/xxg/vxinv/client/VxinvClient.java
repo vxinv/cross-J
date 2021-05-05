@@ -38,7 +38,9 @@ public class VxinvClient {
                         new VxinvClientHandler());
             }
         });
+
         Log.info("链接公网IP{} 端口 {} 成功", serverAddress, serverPort);
+
         // channel close retry connect
         future.addListener(future1 -> new Thread() {
             @Override

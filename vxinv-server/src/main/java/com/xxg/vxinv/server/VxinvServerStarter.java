@@ -5,9 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-/**
- * Created by wucao on 2019/10/23.
- */
 public class VxinvServerStarter {
     static Logger Log = LoggerFactory.getLogger(VxinvServerStarter.class);
 

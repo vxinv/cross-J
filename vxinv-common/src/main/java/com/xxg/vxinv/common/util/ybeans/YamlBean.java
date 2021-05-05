@@ -3,20 +3,12 @@ package com.xxg.vxinv.common.util.ybeans;
 import java.util.List;
 
 public class YamlBean {
-    String run;
+
     int server_port;
     List<Binds> server_binds;
     String client_connect_addr;
     int client_connect_port;
     List<Proxys> client_proxys;
-
-    public String getRun() {
-        return run;
-    }
-
-    public void setRun(String run) {
-        this.run = run;
-    }
 
     public int getServer_port() {
         return server_port;

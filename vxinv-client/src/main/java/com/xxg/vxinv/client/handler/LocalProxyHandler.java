@@ -26,7 +26,7 @@ public class LocalProxyHandler extends VxinvCommonHandler {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         byte[] data = (byte[]) msg;
-        Log.info("LocalProxyHandler read  Client write {}", new String(data));
+        Log.info("LocalProxyHandler read  Client bind write {}", data.length);
         LengthMessage message = new LengthMessage();
         message.setData(data);
         message.setId(id);

@@ -7,19 +7,19 @@
             <PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
         </console>
 
-        <!--<RollingFile name="RollingFileInfo" fileName="info.log"
-                     filePattern="${sys:user.home}/logs/nwct/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log">
+        <RollingFile name="RollingFileInfo" fileName="info.log"
+                     filePattern="${sys:user.dir}/logs/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log">
             <Filters>
-                <ThresholdFilter level="INFO" />
+                <ThresholdFilter level="INFO"/>
                 <ThresholdFilter level="WARN" onMatch="DENY"
-                                 onMismatch="NEUTRAL" />
+                                 onMismatch="NEUTRAL"/>
             </Filters>
-            <PatternLayout pattern="[%t] - %m%n" />
+            <PatternLayout pattern="[%t] - %m%n"/>
             <Policies>
-                <TimeBasedTriggeringPolicy />
-                <SizeBasedTriggeringPolicy size="100 MB" />
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
             </Policies>
-        </RollingFile>-->
+        </RollingFile>
 
         <!-- <RandomAccessFile name="RandomAccessFile" fileName="asyncWithLocation.log"
                            immediateFlush="false" append="true">
@@ -35,8 +35,8 @@
             includeLocation="true">
             <AppenderRef ref="RandomAccessFile" />
         </AsyncLogger> -->
-        <Root level="warn" includeLocation="true">
-            <!--<AppenderRef ref="RollingFileInfo" />-->
+        <Root level="info" includeLocation="true">
+            <AppenderRef ref="RollingFileInfo"/>
             <AppenderRef ref="Console"/>
         </Root>
     </loggers>
