@@ -33,10 +33,12 @@ public class VxinvClientHandler extends VxinvCommonHandler {
         Log.info("client read len  {} , id {}", message.getLength(), message.getId());
         short id = message.getId();
         Log.info("retry 1");
-        if (ChannelHolder.pm.get(id) == null) {
+        LocalProxyHandler handler = ChannelHolder.pm.get(id);
+
+        if (!handler.getCtx().channel().isActive()) {
             Log.info("retry 2");
             Channel channel = VxinvClient.connectLocal(id);
-            if (channel != null){
+            if (channel != null) {
                 channel.writeAndFlush(message.getData());
             }
         }

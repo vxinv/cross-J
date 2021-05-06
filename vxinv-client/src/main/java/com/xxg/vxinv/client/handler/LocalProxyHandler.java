@@ -3,9 +3,7 @@ package com.xxg.vxinv.client.handler;
 import com.xxg.vxinv.client.global.ChannelHolder;
 import com.xxg.vxinv.common.handler.VxinvCommonHandler;
 import com.xxg.vxinv.common.protocol.LengthMessage;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.group.ChannelGroup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -17,7 +15,7 @@ public class LocalProxyHandler extends VxinvCommonHandler {
 
     Logger Log = LoggerFactory.getLogger(LocalProxyHandler.class);
 
-    private Short id;
+    public Short id;
 
     public LocalProxyHandler(Short id) {
         this.id = id;
@@ -46,6 +44,7 @@ public class LocalProxyHandler extends VxinvCommonHandler {
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         Log.info("LocalProxy {} no active", id);
+        this.getCtx().channel().close();
         ChannelHolder.pm.put(id, null);
     }
 }

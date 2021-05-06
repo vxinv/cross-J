@@ -50,7 +50,7 @@ public class RemoteProxyHandler extends VxinvCommonHandler {
         message.setLength(data.length);
         message.setId(id);
         message.setData(data);
-        Log.info("server bind read  {}", new String(data));
+        Log.info("server bind read  len{}", data.length);
         ChannelHolder.serverhandler.getCtx().writeAndFlush(message);
     }
 }

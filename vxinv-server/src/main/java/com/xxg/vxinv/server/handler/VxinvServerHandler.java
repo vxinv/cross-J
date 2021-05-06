@@ -31,7 +31,7 @@ public class VxinvServerHandler extends VxinvCommonHandler {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         LengthMessage message = (LengthMessage) msg;
-        Log.info("server channel read {}", new String(message.getData()));
+        Log.info("server channel read  len{}", message.getLength());
         processData(message);
     }
 

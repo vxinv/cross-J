@@ -27,13 +27,15 @@ public class TcpConnection {
      */
     public ChannelFuture connect(String host, int port, ChannelInitializer channelInitializer) throws InterruptedException, IOException {
 
-        NioEventLoopGroup workerGroup = new NioEventLoopGroup();
+        NioEventLoopGroup workerGroup = new NioEventLoopGroup(4);
 
         try {
             Bootstrap b = new Bootstrap();
             b.group(workerGroup);
             b.channel(NioSocketChannel.class);
             b.option(ChannelOption.SO_KEEPALIVE, true);
+            b.option(ChannelOption.SO_BACKLOG, 1024);
+            b.option(ChannelOption.TCP_NODELAY, true);
             b.handler(channelInitializer);
 
             Channel channel = b.connect(host, port).sync().channel();

@@ -25,7 +25,8 @@ start(){
   if [ $? -eq "0" ]; then
     echo ">>> ${JAR_NAME} is already running PID=${pid} <<<"
   else
-    nohup java -Xms256m -Xmx512m -jar "$JAR_NAME" "$which" >/dev/null 2>&1 &
+#    -Xms512m -Xmx1024m
+    nohup java  -jar "$JAR_NAME" "$which" >/dev/null 2>&1 &
     echo ">>> start $JAR_NAME successed PID=$! <<<"
    fi
   }

@@ -4,7 +4,6 @@ import com.xxg.vxinv.common.protocol.LengthMessage;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,9 +25,7 @@ public class HeartBeatClientHandle extends SimpleChannelInboundHandler<LengthMes
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, LengthMessage msg) throws Exception {
-        if (msg.getId() == hearBeatId){
-
-        }else {
+        if (msg.getId() != hearBeatId) {
             ctx.fireChannelRead(msg);
         }
     }
@@ -44,10 +41,7 @@ public class HeartBeatClientHandle extends SimpleChannelInboundHandler<LengthMes
     public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
         //Log.info("userEventTriggered {}" ,msg);
         if (evt instanceof IdleStateEvent) {
-            IdleStateEvent event = (IdleStateEvent) evt;
-            if (IdleState.WRITER_IDLE.equals((event.state()))) {
                 ctx.writeAndFlush(lengthMessage).addListener(ChannelFutureListener.CLOSE_ON_FAILURE);
-            }
         }
     }
 }

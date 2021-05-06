@@ -71,7 +71,7 @@
                             <mainClass>com.xxg.vxinv.inte.NetOcrot</mainClass>
                         </manifest>
                     </archive>
-                    <finalName>NetSpider</finalName>
+                    <finalName>net-spider</finalName>
                 </configuration>
             </plugin>
         </plugins>

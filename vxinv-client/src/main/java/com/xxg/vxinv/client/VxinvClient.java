@@ -41,7 +41,7 @@ public class VxinvClient {
             @Override
             public void initChannel(SocketChannel ch) throws Exception {
                 ch.pipeline().addLast(
-                        new IdleStateHandler(0, 250, 0, TimeUnit.SECONDS),
+                        new IdleStateHandler(0, 0, 0, TimeUnit.SECONDS),
                         new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 2, 4, 0, 0),
                         new LengthMessageDecoder(),
                         new LengthMessageEncoder(),
