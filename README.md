@@ -1,45 +1,82 @@
-# vxinv
-vxinv 是一个基于 Java Netty 实现的可用于内网穿透的代理工具，支持 TCP 协议（如 HTTP 协议）。
+### 内网穿透软件介绍
 
-vxinv 包含服务端和客户端两部分，服务端运行在带有公网 IP 的服务器上，客户端运行在没有公网 IP 的机器上。
+#### 文件介绍
 
-由于大部分联网设备只有内网 IP ，例如大部分家庭宽带，我们在本地启动的网络应用无法对外提供访问，这种场景下可以使用 vxinv 将本地网络地址映射到外网，对外提供访问。
++ 下载文件,上传至服务器进行解压,tar或者zip包
 
-下载： https://github.com/wucao/vxinv/releases/tag/v1.0.2
++ 解压目录如下图
 
-## 启动
-### 服务端启动
-在带有公网 IP 的服务器上执行 Java 命令:
+![](.README_images/fc791557.png)
+
++ 目录解释
+    
+    - logs 软件运行日志 默认等级是 warn
+    - config.yaml 是配置文件
+    - net-octor.sh 为命令脚本
+    
+#### 运行流程图
+
+![](.README_images/9d236de4.png)
+
+#### 配置文件介绍
+
+```yaml
+
+# 公网服务器端口
+server_port: 4567
+# 客户端链接公网服务器的端口 必须和server_port一致
+client_connect_port: 4567
+# 内网服务器访问公网的端口
+client_connect_addr: 'aly1'
+# 公网服务器监听端口
+server_binds:
+  # 如需监听多个 下面继续写 
+  # 如下配置 公网服务监听 3310 3320
+  - id: '1'
+    port: 3310
+  - id: '2'
+    port: 3320
+# 内网监听的端口
+client_proxys:
+  - id: '1'
+    proxy_addr: '127.0.0.1'
+    proxy_port: 8080
+  - id: '1'
+    proxy_addr: '127.0.0.1'
+    proxy_port: 8080
+
 ```
-java -jar vxinv-server.jar
-```
-看到输出表示启动成功:
-```
-vxinv server started on port 7731
-```
-默认服务端端口号是7731。`注意这个端口号是 vxinv 客户端连接 vxinv 服务器的端口号，并非对外网提供访问的端口号`。
 
-指定端口号和 password :
-```
-java -jar vxinv-server.jar -port 9000 -password password123
-```
-默认情况下 vxinv 服务端未指定 password ，任何客户端都可以直接连接并使用 vxinv 服务器，这样很不安全，建议使用 vxinv 服务端时指定一个 password 作为连接服务端的密码。
++ server_port: 公网的服务器端口，内网服务器链接使用
++ client_connect_port: 配置内网链接公网的服务器端口，和上面的端口号保持一致
++ client_connect_addr: 配置公网服务器的链接地址
++ server_binds： 下面表示公网服务器监听的端口
++ port： 公网开放的端口
++ client_proxys： 下面表示内网服务器的穿透端口
++ proxy_addr: 内网的链接地址 ，默认可以配置主机自己
++ proxy_port: 内网的链接端口 
 
-### 客户端启动
-在没有公网 IP 的机器上执行 Java 命令:
-```
-java -jar vxinv-client.jar -server_addr 211.161.xxx.xxx -server_port 7731 -password password123 -proxy_addr localhost -proxy_port 8080 -remote_port 10000
-```
 
-参数说明:
-- `server_addr` vxinv 服务端的网络地址，即 vxinv 服务端运行的服务器外网 IP 或 hostname
-- `server_port` vxinv 服务端的端口
-- `password` vxinv 服务端的 password
-- `proxy_addr` 被代理的应用网络地址
-- `proxy_port` 被代理的应用端口号
-- `remote_port` vxinv 服务端对外访问该应用的端口
++ 注意事项：
+    
+    - server_binds id和client_proxys的id一一对应
+    - 表示 公网访问3310会被代理到内网的8080
+    - 配置文件是 yaml标记语言 :后留一个空格
 
-启动成功后可以通过 server_addr:remote_port 访问被代理的应用，如果被代理的应用是 HTTP 应用，可以通过 http://211.161.xxx.xxx:10000 在外网访问。
 
-## 典型使用场景
-- 在开发微信公众号服务时，由于本机没有外网 IP ，微信的服务器无法访问到本机接口，调试很不方便，可以使用 vxinv 将本地网络地址映射到外网，便于调试。
+
+#### 运行指令介绍
+
++ sh net-ocrot.sh  -start -s :公网服务器最后是-s 代表服务端  start表示开启服务 
++ sh net-ocrot.sh  -start -c : 内网服务器最后是-c 代表客户端  start表示开启服务 
++ sh net-ocrot.sh  -stop : 关闭服务
+
+
+#### 使用场景
+
++ 代理基于TCP链接 可以代理HTTP SSL。。。
++ 内网运行时，内网的监听端口需要打开，比如代理内网的9090端口，那么内网的端口
+一定要提前打开！！！！！
+
+
+
