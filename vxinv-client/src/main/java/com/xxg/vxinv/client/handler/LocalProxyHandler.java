@@ -5,13 +5,14 @@ import com.xxg.vxinv.common.handler.VxinvCommonHandler;
 import com.xxg.vxinv.common.protocol.LengthMessage;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.group.ChannelGroup;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
  * Created by wucao on 2019/3/2.
  */
-@ChannelHandler.Sharable
+
 public class LocalProxyHandler extends VxinvCommonHandler {
 
     Logger Log = LoggerFactory.getLogger(LocalProxyHandler.class);
@@ -38,8 +39,13 @@ public class LocalProxyHandler extends VxinvCommonHandler {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         Log.info("LocalProxy {} active", id);
         super.channelActive(ctx);
-        ChannelHolder.proxyClientHandlerMap.put(id, LocalProxyHandler.this);
+
+        ChannelHolder.pm.put(id,this);
     }
 
-
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        Log.info("LocalProxy {} no active", id);
+        ChannelHolder.pm.put(id, null);
+    }
 }

@@ -10,11 +10,11 @@
         <RollingFile name="RollingFileInfo" fileName="info.log"
                      filePattern="${sys:user.dir}/logs/$${date:yyyy-MM}/info-%d{yyyy-MM-dd}-%i.log">
             <Filters>
-                <ThresholdFilter level="INFO"/>
+                <ThresholdFilter level="DEBUG"/>
                 <ThresholdFilter level="WARN" onMatch="DENY"
                                  onMismatch="NEUTRAL"/>
             </Filters>
-            <PatternLayout pattern="[%t] - %m%n"/>
+            <PatternLayout pattern="[%d{mm:ss:SSS}] [%p] - %l - %m%n"/>
             <Policies>
                 <TimeBasedTriggeringPolicy/>
                 <SizeBasedTriggeringPolicy size="100 MB"/>
@@ -35,7 +35,7 @@
             includeLocation="true">
             <AppenderRef ref="RandomAccessFile" />
         </AsyncLogger> -->
-        <Root level="info" includeLocation="true">
+        <Root level="debug" includeLocation="true">
             <AppenderRef ref="RollingFileInfo"/>
             <AppenderRef ref="Console"/>
         </Root>

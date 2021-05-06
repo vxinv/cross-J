@@ -14,8 +14,7 @@ public class LengthMessageEncoder extends MessageToByteEncoder<LengthMessage> {
 
     @Override
     protected void encode(ChannelHandlerContext ctx, LengthMessage msg, ByteBuf out) throws Exception {
-
-        Log.info("client  write  encode {}", new String(msg.getData()));
+        Log.info("client  write  encode  length {}",msg.getData().length);
         out.writeShort(msg.getId());
         out.writeInt(msg.getLength());
         out.writeBytes(msg.getData());

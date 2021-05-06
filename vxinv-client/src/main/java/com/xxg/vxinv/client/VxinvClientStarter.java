@@ -24,26 +24,8 @@ public class VxinvClientStarter {
 
 
         VxinvClient client = new VxinvClient();
-        client.connect(server_addr, server_port);
-
-        // Client 监听本地
-        for (Proxys proxy : yb.getClient_proxys()) {
-            TcpConnection localConnection = new TcpConnection();
-            // 对代理地址端口监听
-            try {
-                localConnection.connect(proxy.getProxy_addr(), proxy.getProxy_port(), new ChannelInitializer<SocketChannel>() {
-                    @Override
-                    public void initChannel(SocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(
-                                new ByteArrayDecoder(),
-                                new ByteArrayEncoder(),
-                                new LocalProxyHandler(proxy.getId()));
-                    }
-                });
-                Log.info("链接端口 {} 成功", proxy.getProxy_port());
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        client.connect(server_addr, server_port,yb);
     }
+
+
 }

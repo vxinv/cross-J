@@ -22,7 +22,7 @@ public class LengthMessageDecoder extends MessageToMessageDecoder<ByteBuf> {
         byte[] bytes = new byte[length];
         msg.readBytes(bytes);
         lengthMessage.setData(bytes);
-        Log.info("server   decode {} ", new String(bytes));
+        Log.info("server   decode  length {} ", bytes.length);
         out.add(lengthMessage);
     }
 }

@@ -1,9 +1,11 @@
 package com.xxg.vxinv.client.handler;
 
 
+import com.xxg.vxinv.client.VxinvClient;
 import com.xxg.vxinv.client.global.ChannelHolder;
 import com.xxg.vxinv.common.handler.VxinvCommonHandler;
 import com.xxg.vxinv.common.protocol.LengthMessage;
+import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import org.slf4j.Logger;
@@ -30,14 +32,22 @@ public class VxinvClientHandler extends VxinvCommonHandler {
         LengthMessage message = (LengthMessage) msg;
         Log.info("client read len  {} , id {}", message.getLength(), message.getId());
         short id = message.getId();
-        ChannelHolder.proxyClientHandlerMap.get(id).getCtx().writeAndFlush(message.getData());
+        Log.info("retry 1");
+        if (ChannelHolder.pm.get(id) == null) {
+            Log.info("retry 2");
+            Channel channel = VxinvClient.connectLocal(id);
+            if (channel != null){
+                channel.writeAndFlush(message.getData());
+            }
+        }
+        ChannelHolder.pm.get(id).getCtx().writeAndFlush(message.getData());
+
     }
 
 
     @Override
-    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        Log.info("lose {}", 1);
-        System.out.println("Loss connection to vxinv server, Please restart!");
+    public void channelInactive(ChannelHandlerContext ctx) {
+        Log.info("Loss connection to vxinv server, Please restart!");
     }
 
 

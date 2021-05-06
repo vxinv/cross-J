@@ -1,22 +1,17 @@
 # 公网服务器端口
-server_port: 7777
+server_port: 4567
 # 客户端链接公网服务器的端口 必须和server_port一致
-client_connect_port: 7777
+client_connect_port: 4567
 # 内网服务器访问公网的端口
-client_connect_addr: '27.54.253.193'
+client_connect_addr: 'aly1'
 # 公网服务器监听端口
 server_binds:
-  - id: '1'
-    port: 3211
   # 如需监听多个 下面继续写
-  - id: '2'
+  - id: '1'
     port: 3310
 
 # 内网监听的端口
 client_proxys:
   - id: '1'
-    proxy_addr: '192.168.1.7'
-    proxy_port: 22
-  - id: '2'
-    proxy_addr: '192.168.1.7'
-    proxy_port: 3306
+    proxy_addr: '127.0.0.1'
+    proxy_port: 8080
