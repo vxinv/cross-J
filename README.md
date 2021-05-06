@@ -3,7 +3,8 @@
 #### 文件介绍
 
 + 下载文件,上传至服务器进行解压,tar或者zip包
-
+   https://gitee.com/lixin888888/octor-net/releases/1.0
+   
 + 解压目录如下图
 
 ![](.README_images/fc791557.png)
