@@ -41,7 +41,7 @@ client_proxys:
   - id: '1'
     proxy_addr: '127.0.0.1'
     proxy_port: 8080
-  - id: '1'
+  - id: '2'
     proxy_addr: '127.0.0.1'
     proxy_port: 8080
 
