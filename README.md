@@ -1,5 +1,8 @@
 ### 内网穿透软件介绍
 
+github不在更新
+最新版 转至 https://gitee.com/lixin888888/octor-net
+
 #### 文件介绍
 
 + 下载文件,上传至服务器进行解压,tar或者zip包
